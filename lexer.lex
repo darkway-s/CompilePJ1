@@ -20,10 +20,14 @@ ID          [a-zA-Z][a-zA-Z0-9]*
 DELIMETER   (":"|";"|","|"."|"("|")"|"["|"]"|"{"|"}"|"[<"|">]"|'\')
 OPERATOR    (":="|'+'|'-'|'*'|"/"|"<"|"<="|">"|">="|"="|"<>")
 
+COMMENT     "(*"[^*)]*"*)"
 
 %%
 
 <<EOF>>     return T_EOF;
+
+
+{COMMENT}       TokenOutput(row, col, "Comment  ", yytext);
 
 {KEYWORD}       TokenOutput(row, col, "Keyword  ", yytext);
 
@@ -35,7 +39,14 @@ OPERATOR    (":="|'+'|'-'|'*'|"/"|"<"|"<="|">"|">="|"="|"<>")
 
 {ID}            TokenOutput(row, col, "Identifer", yytext);
 
-{INTEGER}       TokenOutput(row, col, "Integer  ", yytext);
+{INTEGER}       {
+                        if(strlen(yytext) > 9 && atoi(yytext) == -1)
+                        {
+                                TokenOutput(row, col, "ERROR: Integer out of range", yytext);
+                                return 1;
+                        }
+                        TokenOutput(row, col, "Integer  ", yytext);
+                }
 
 {REAL}          TokenOutput(row, col, "Real     ", yytext);
 
