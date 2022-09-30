@@ -3,8 +3,10 @@
 #include <math.h>
 
 void TokenOutput(int& row, int& col, const char* type, char* text);
+void PassN(int& row, int& col, const char* type, char* text);
 int row = 1;
 int col = 1;
+int TokensNumber = 0;
 %}
 %option     nounput
 %option     noyywrap
@@ -18,16 +20,19 @@ WS          [ \t]+
 STRING      ["][^'\"']*["]
 ID          [a-zA-Z][a-zA-Z0-9]*
 DELIMETER   (":"|";"|","|"."|"("|")"|"["|"]"|"{"|"}"|"[<"|">]"|'\')
-OPERATOR    (":="|'+'|'-'|'*'|"/"|"<"|"<="|">"|">="|"="|"<>")
+OPERATOR    (":="|"+"|"-"|"*"|"/"|"<"|"<="|">"|">="|"="|"<>")
 
 COMMENT     "(*"[^*)]*"*)"
 
 %%
 
-<<EOF>>     return T_EOF;
+<<EOF>>         {
+                        printf("\nNumber of tokens: %d", TokensNumber);
+                        return T_EOF;
+                }
 
 
-{COMMENT}       TokenOutput(row, col, "Comment  ", yytext);
+{COMMENT}       PassN(row, col, "Comment  ", yytext);
 
 {KEYWORD}       TokenOutput(row, col, "Keyword  ", yytext);
 
@@ -64,6 +69,14 @@ void TokenOutput(int& row, int& col, const char* type, char* text){
 
         printf("%d\t%d\t%s\t%s\n",
                         row, col, type ,text);
+        col += strlen(text);
+        TokensNumber++;
+
+        return;
+}
+
+void PassN(int& row, int& col, const char* type, char* text){
+	
         col += strlen(text);
 
         return;

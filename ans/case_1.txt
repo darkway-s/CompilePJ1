@@ -1,0 +1,53 @@
+ROW	COL	TYPE		TOKEN
+1	1	Keyword  	PROGRAM
+1	9	Keyword  	IS
+2	5	Keyword  	VAR
+2	9	Identifer	i
+2	10	Delimeter	,
+2	12	Identifer	j
+2	14	Delimeter	:
+2	16	Identifer	INTEGER
+2	24	Operator 	:=
+2	27	Integer  	1
+2	28	Delimeter	;
+3	5	Keyword  	VAR
+3	9	Identifer	x
+3	11	Delimeter	:
+3	13	Identifer	REAL
+3	18	Operator 	:=
+3	21	Real     	2.0
+3	24	Delimeter	;
+4	5	Keyword  	VAR
+4	9	Identifer	y
+4	11	Delimeter	:
+4	13	Identifer	REAL
+4	18	Operator 	:=
+4	21	Real     	3.0
+4	24	Delimeter	;
+5	1	Keyword  	BEGIN
+6	5	Keyword  	WRITE
+6	11	Delimeter	(
+6	12	String   	"i = "
+6	18	Delimeter	,
+6	20	Identifer	i
+6	21	Delimeter	,
+6	23	String   	", j = "
+6	31	Delimeter	,
+6	33	Identifer	j
+6	34	Delimeter	)
+6	35	Delimeter	;
+7	5	Keyword  	WRITE
+7	11	Delimeter	(
+7	12	String   	"x = "
+7	18	Delimeter	,
+7	20	Identifer	x
+7	21	Delimeter	,
+7	23	String   	", y = "
+7	31	Delimeter	,
+7	33	Identifer	y
+7	34	Delimeter	)
+7	35	Delimeter	;
+8	1	Keyword  	END
+8	4	Delimeter	;
+
+Number of tokens: 50
