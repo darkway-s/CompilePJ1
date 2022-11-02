@@ -834,7 +834,7 @@ TokenOutput(row, col, "Operator ", yytext);
 case 5:
 YY_RULE_SETUP
 #line 43 "lexer.lex"
-TokenOutput(row, col, "Delimeter", yytext);
+TokenOutput(row, col, "Delimiter", yytext);
 	YY_BREAK
 case 6:
 YY_RULE_SETUP

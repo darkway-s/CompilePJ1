@@ -19,7 +19,7 @@ WS          [ \t]+
 
 STRING      ["][^'\"']*["]
 ID          [a-zA-Z][a-zA-Z0-9]*
-DELIMETER   (":"|";"|","|"."|"("|")"|"["|"]"|"{"|"}"|"[<"|">]"|'\')
+DELIMITER   (":"|";"|","|"."|"("|")"|"["|"]"|"{"|"}"|"[<"|">]"|'\')
 OPERATOR    (":="|"+"|"-"|"*"|"/"|"<"|"<="|">"|">="|"="|"<>")
 
 COMMENT     "(*"[^*)]*"*)"
@@ -40,7 +40,7 @@ COMMENT     "(*"[^*)]*"*)"
 
 {OPERATOR}      TokenOutput(row, col, "Operator ", yytext);
 
-{DELIMETER}     TokenOutput(row, col, "Delimeter", yytext);
+{DELIMITER}     TokenOutput(row, col, "Delimiter", yytext);
 
 {ID}            TokenOutput(row, col, "Identifer", yytext);
 
