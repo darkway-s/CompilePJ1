@@ -6,5 +6,9 @@
 #define ADD 1
 #define SUB 2
 #define NUMBER 3
+#define BADCHAR 4
+#define C_EOF 5
+
+
 
 #endif

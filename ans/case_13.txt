@@ -16,7 +16,8 @@ ROW     COL     TYPE                TOKEN/ERROR MESSAGE
 3       13      Identifer           REAL
 3       18      Operator            :=
 3       21      Real                2.0
-3       24      Delimiter           ;
+3       24      Delimiter           .
+3       25      Delimiter           ;
 4       5       Keyword             VAR
 4       9       Identifer           y
 4       11      Delimiter           :
@@ -35,7 +36,6 @@ ROW     COL     TYPE                TOKEN/ERROR MESSAGE
 6       31      Delimiter           ,
 6       33      Identifer           j
 6       34      Delimiter           )
-6       35      Delimiter           ;
 7       5       Keyword             WRITE
 7       11      Delimiter           (
 7       12      String              "x = "

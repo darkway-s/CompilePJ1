@@ -35,7 +35,6 @@ ROW     COL     TYPE                TOKEN/ERROR MESSAGE
 6       31      Delimiter           ,
 6       33      Identifer           j
 6       34      Delimiter           )
-6       35      Delimiter           ;
 7       5       Keyword             WRITE
 7       11      Delimiter           (
 7       12      String              "x = "
@@ -50,4 +49,4 @@ ROW     COL     TYPE                TOKEN/ERROR MESSAGE
 8       1       Keyword             END
 8       4       Delimiter           ;
 
-Number of tokens: 50
+Number of tokens: 49

@@ -1,0 +1,67 @@
+ROW     COL     TYPE                TOKEN/ERROR MESSAGE 
+1       1       Comment             (* valid integer *)
+2       1       Integer             11111111
+4       1       Comment             (* an out of range integer *)
+5       1       Invalid             ERROR: Integer out of range: 11111111111111111111
+7       1       Comment             (* an very large real -- still acceptable though *)
+8       1       Real                123456789012345678901234567890.0
+10      1       Comment             (* a valid string*)
+11      1       String              "abcdefg"
+13      1       Comment             (* an invalid string with tab in it *)
+14      1       Invalid             ERROR: String contains tab: "abcde	g"
+16      1       Comment             (* an invalid string with many tabs in it *)
+17      1       Invalid             ERROR: String contains tab: "abcde			g"
+19      1       Comment             (* an ok string *)
+20      1       String              "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345"
+22      1       Comment             (* an overly long string *)
+23      1       Invalid             ERROR: String is longer than 255: "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456"
+25      1       Comment             (* another ok string *)
+26      1       String              ""
+28      1       Comment             (* another ok string *)
+29      1       String              "(*"
+31      1       Comment             (* an ok identifier *)
+32      1       Identifer           x12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234
+34      1       Comment             (* an overly long identifier *)
+35      1       Invalid             ERROR: Identifier is longer than 255: x123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345
+37      1       Comment             (* an ok line *)
+38      1       Identifer           if
+38      4       Identifer           x
+38      5       Operator            <
+38      6       Integer             7
+38      7       Identifer           then
+38      12      Identifer           y
+38      13      Operator            :=
+38      15      Identifer           y
+38      16      Operator            +
+38      17      Integer             17
+40      1       Comment             (* should lex as two tokens *)
+41      1       Real                123.
+41      5       Identifer           x
+43      1       Comment             (* a bad character (bell) *)
+44      1       Invalid             ERROR: Bad character: 
+46      1       Identifer           xx
+46      3       Comment             (* an ok comment with an embedded	tab 
+and cr *)
+47      10      Identifer           yy
+49      1       Comment             (* an unterminated string *)
+50      1       Invalid             ERROR: Unterminated string: "abc
+
+52      1       Comment             (* an unterminated string *)
+53      1       Invalid             ERROR: Unterminated string: "abc(**)
+
+55      1       Comment             (* an unterminated string *)
+56      1       Invalid             ERROR: Unterminated string: "abc(*123*)
+
+58      1       Comment             (* a terminated string *)
+59      1       String              "abc(*abcabcc*)"
+61      1       Comment             (* difficult cases: valid *)
+62      1       Comment             (*************)
+64      1       Comment             (* difficult cases: valid *)
+65      1       Comment             (*******(*****(*)
+67      1       Comment             (* difficult cases: valid *)
+68      1       Comment             (*123***123213**21****)
+70      1       Comment             (* difficult cases: valid *)
+71      1       Comment             (*""*)
+73      1       Comment             (* difficult cases: an unterminated comment *)
+74      1       Invalid             ERROR: Unterminated comment: 
+Number of tokens: 31

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include <iomanip>
 #include "lexer.h"
 using namespace std;
 
@@ -14,13 +15,14 @@ int main(int argc, char **argv)
     } else {
         yyin = stdin;
     }
-    printf("ROW\tCOL\tTYPE\t\tTOKEN\n");
+    cout << left << setw(8) << "ROW" << setw(8) << "COL";
+    cout << setw(20) << "TYPE" << setw(20) << "TOKEN/ERROR MESSAGE" << endl;
     while (true){
         int n = yylex();
-        if (n == T_EOF){
+        if (n == T_EOF || n == C_EOF){
             break;
         }
-        cout << yytext << endl;
+        // cout << yytext << endl;
     }
     
     return 0;

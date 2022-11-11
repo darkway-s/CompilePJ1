@@ -14,7 +14,6 @@ ROW     COL     TYPE                TOKEN/ERROR MESSAGE
 2       34      Delimiter           )
 2       35      Delimiter           :
 2       36      Identifer           REAL
-2       41      Keyword             IS
 3       7       Keyword             PROCEDURE
 3       17      Identifer           BAR
 3       20      Delimiter           (
@@ -68,4 +67,4 @@ ROW     COL     TYPE                TOKEN/ERROR MESSAGE
 12      1       Keyword             END
 12      4       Delimiter           ;
 
-Number of tokens: 68
+Number of tokens: 67
